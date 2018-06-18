@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from './components/Card';
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-            
+            <Card />
             </React.Fragment>
         )
     }
