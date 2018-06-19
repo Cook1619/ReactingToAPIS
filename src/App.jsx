@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './components/MovieList'
+import './styles.css';
 
 class App extends Component {
     constructor(props) {
@@ -28,7 +29,9 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                        <MovieList movie={this.state.movies}/>
+                <h1 className="text-center">Studio Ghibli Movies</h1>
+                <button className="d-flex mx-auto btn btn-ghost center-block">Show Movies</button>
+                <MovieList movie={this.state.movies} />
             </React.Fragment>
         )
     }
