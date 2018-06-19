@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './components/Card.jsx';
+import MovieList from './components/MovieList'
 
 class App extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                        <Card info={this.state.movie}/>
+                        <MovieList info={this.state.movies}/>
             </React.Fragment>
         )
     }
