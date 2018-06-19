@@ -2,13 +2,13 @@ import React from 'react';
 import Card from './Card.jsx';
 
 const MovieList = (props) => {
-    let movies = props.movie.map((movie, index) => {
-        return <Card key={index} movie={movie} />
+    let movies = props.movie.map((movie) => {
+        return <Card key={movie.id} movie={movie} />
     })
     return (
         <div className="container">
             <div className="row">
-                <div className="col">{movies}</div>
+                {movies}
             </div>
         </div>
     )
