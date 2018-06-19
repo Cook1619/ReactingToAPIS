@@ -11,12 +11,19 @@ class App extends Component {
     }
     componentDidMount = () => {
         fetch('https://ghibliapi.herokuapp.com/films')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(myJson);
-            });
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        movies: result.titles
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    })
+                }
+            )
     }
     render() {
         return (
