@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                        <MovieList info={this.state.movies}/>
+                        <MovieList movie={this.state.movies}/>
             </React.Fragment>
         )
     }

@@ -5,10 +5,10 @@ const Card = (props) => {
             <div className="col-lg-12">
                 <div className="card">
                     <div className="card-header">
-                        <h6>{props.movieList.title}</h6>
+                        <h6>{props.movie.title}</h6>
                     </div>
                     <div className="card-body">
-                        <p>{props.movieList.description}</p>
+                        <p>{props.movie.description}</p>
                     </div>
                 </div>
             </div>
