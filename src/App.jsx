@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieList from './components/MovieList'
 import './styles.css';
 
+const Base_URL = 'https://ghibliapi.herokuapp.com/films';
 class App extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class App extends Component {
         }
     }
     componentDidMount = () => {
-        fetch('https://ghibliapi.herokuapp.com/films')
+        fetch(`${Base_URL}`)
             .then(res => res.json())
             .then(
                 (result) => {
