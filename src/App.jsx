@@ -29,25 +29,26 @@ class App extends Component {
             )
     }
     showMovies = () => {
-        this.setState({toggle: !this.state.toggle})
+        this.setState({ toggle: !this.state.toggle })
     }
     render() {
-        if(!this.state.toggle)
-        return (
-            <React.Fragment>
-                <h1 className="text-center">Studio Ghibli Movies</h1>
-                <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Show Movies</button>
-                <MovieList movie={this.state.movies} />
-            </React.Fragment>
-        )
-    }
-    else {
-        return(
-            <React.Fragment>
-            
-            </React.Fragment>
-        )
+        if (!this.state.toggle) {
+            return (
+                <React.Fragment>
+                    <h1 className="text-center">Studio Ghibli Movies</h1>
+                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Hide Movies</button>
+                    <MovieList movie={this.state.movies} />
+                </React.Fragment>
+            )
+        }
+        else {
+            return (
+                <React.Fragment>
+                    <h1 className="text-center">Studio Ghibli Movies</h1>
+                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Show Movies</button>
+                </React.Fragment>
+            )
+        }
     }
 }
-
 export default App;
