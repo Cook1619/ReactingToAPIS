@@ -8,7 +8,7 @@ const Card = (props) => {
                         <h6>Card Title</h6>
                     </div>
                     <div className="card-body">
-                        <p>{props.movie}</p>
+                        <p>{props.movieList.description}</p>
                     </div>
                 </div>
             </div>

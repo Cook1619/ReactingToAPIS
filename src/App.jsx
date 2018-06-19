@@ -15,7 +15,7 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        movies: result.titles
+                        movies: result
                     })
                 },
                 (error) => {
@@ -28,11 +28,7 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container">
-                    <div className="row">
-                        <Card />
-                    </div>
-                </div>
+                        <Card info={this.state.movie}/>
             </React.Fragment>
         )
     }
