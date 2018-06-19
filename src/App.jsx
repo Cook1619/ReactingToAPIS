@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './components/Card';
+import Card from './components/Card.jsx';
 
 class App extends Component {
     constructor(props) {
@@ -21,7 +21,11 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-            <Card />
+                <div className="container">
+                    <div className="row">
+                        <Card />
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
