@@ -4,6 +4,7 @@ import PeopleList from './components/PeopleList';
 import './styles.css';
 
 const Base_URL = 'https://ghibliapi.herokuapp.com/films';
+const Base_URL2 = 'https://ghibliapi.herokuapp.com/people'
 
 class App extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
             toggle: false
         }
     }
-    componentDidMount = () => {
+    showMovies = () => {
         fetch(`${Base_URL}`)
             .then(res => res.json())
             .then(
@@ -31,9 +32,25 @@ class App extends Component {
                 }
             )
     }
-    showMovies = () => {
-        this.setState({ toggle: !this.state.toggle })
+    showPeople = () => {
+        fetch(`${Base_URL2}`)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        toggle: true,
+                        people: result
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    })
+                }
+            )
     }
+
+   
     render() {
         if (!this.state.toggle) {
             return (
@@ -50,7 +67,7 @@ class App extends Component {
                 <React.Fragment>
                     <h1 className="text-center">Studio Ghibli Movies</h1>
                     <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Show Movies</button>
-                    <PeopleList />
+                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showPeople}>Show Movies</button>
                 </React.Fragment>
             )
         }
