@@ -21,11 +21,7 @@ class App extends Component {
             let data = await res.json();
             console.log(data);
             this.setState({
-                list:{
-                    id : {...data.id},
-                    title: {...data.title},
-                    description: {...data.description}
-                },
+                list: data,
                 type: 'movies'
             })
         } catch (e) {
@@ -38,11 +34,7 @@ class App extends Component {
             let data = await res.json();
             console.log(data);
             this.setState({
-                list: {
-                  name: {...data.name},
-                  age: {...data.age},
-                  gender: {...data.gender}  
-                },
+                list: data,
                 type: 'people'
             })
         } catch (e) {
