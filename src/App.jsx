@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieList from './components/MovieList';
-import PeopleList from './components/PeopleList';
 import './styles.css';
 
 const Base_URL = 'https://ghibliapi.herokuapp.com/films';
@@ -12,7 +11,7 @@ class App extends Component {
 
         this.state = {
             movies: [],
-            toggle: false
+            
         }
     }
     showMovies = () => {
@@ -21,7 +20,6 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        toggle: true,
                         movies: result
                     })
                 },
@@ -38,7 +36,6 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        toggle: true,
                         people: result
                     })
                 },
@@ -52,25 +49,17 @@ class App extends Component {
 
    
     render() {
-        if (!this.state.toggle) {
+    
             return (
                 <React.Fragment>
                     <h1 className="text-center">Studio Ghibli Movies</h1>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Hide Movies</button>
-                    
-                    <MovieList movie={this.state.movies} />
-                </React.Fragment>
-            )
-        }
-        else {
-            return (
-                <React.Fragment>
-                    <h1 className="text-center">Studio Ghibli Movies</h1>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Show Movies</button>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showPeople}>Show Movies</button>
+                    <button className="d-flex mx-auto btn btn-ghost center-block m-4" 
+                    onClick={this.showMovies}>Show Movies</button>
+                    <button className="d-flex mx-auto btn btn-ghost center-block" 
+                    onClick={this.showPeople}>Show People</button>
+                    <MovieList movie={this.state.movies}/>
                 </React.Fragment>
             )
         }
     }
-}
 export default App;
