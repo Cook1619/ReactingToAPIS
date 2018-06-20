@@ -57,7 +57,7 @@ class App extends Component {
                     onClick={this.showMovies}>Show Movies</button>
                     <button className="d-flex mx-auto btn btn-ghost center-block" 
                     onClick={this.showPeople}>Show People</button>
-                    <MovieList movie={this.state.movies}/>
+                    <MovieList people={this.state.people}/>
                 </React.Fragment>
             )
         }
