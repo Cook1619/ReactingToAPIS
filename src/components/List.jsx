@@ -16,11 +16,9 @@ const List = props => {
     });
     
     return (
-        <div className="container">
-            <div className="row">
+            <div className="row cardList">
                {cardList}
             </div>
-        </div>
     )
 
 }
