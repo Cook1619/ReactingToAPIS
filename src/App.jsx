@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from './components/List';
+import List from './components/List.jsx';
 import './styles.css';
 
 const Base_URL = 'https://ghibliapi.herokuapp.com/films';
