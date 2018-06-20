@@ -22,9 +22,9 @@ class App extends Component {
             console.log(data);
             this.setState({
                 list:{
-                    id : data.id,
-                    title: data.title,
-                    description: data.description
+                    id : {...data.id},
+                    title: {...data.title},
+                    description: {...data.description}
                 },
                 type: 'movies'
             })
@@ -39,10 +39,11 @@ class App extends Component {
             console.log(data);
             this.setState({
                 list: {
-                  name: data.name,
-                  age: data.age,
-                  gender: data.gender  
-                }
+                  name: {...data.name},
+                  age: {...data.age},
+                  gender: {...data.gender}  
+                },
+                type: 'people'
             })
         } catch (e) {
             console.log(e);

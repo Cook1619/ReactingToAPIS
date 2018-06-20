@@ -5,10 +5,10 @@ import Card2 from './Card2.jsx';
 const MovieList = props => {
     let cardList = props.list.map((data, index) => {
         if (props.type === "films") {
-            return <Card key={index.id} />;
+            return <Card key={index.id} data={data.data}/>;
         }
         else {
-            return <Card2 key={index.id} />;
+            return <Card2 key={index.id} data={data.data}/>;
         }
     });
     return (
