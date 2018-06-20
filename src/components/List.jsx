@@ -1,18 +1,20 @@
 import React from 'react';
-import Card from './Card.jsx';
-import Card2 from './Card2.jsx';
+import FilmCard from './FilmCard.jsx';
+import PersonCard from './PersonCard.jsx';
 
 const List = props => {
 
-    let cardList = props.list.map((data, index) => {
+    let cardList = props.list.map(data => {
 
         if (props.type === "films") {
-            return <Card key={data.id} data={props.data}/>;
+            return <FilmCard key={data.id} data={props.data}/>;
         }
         else {
-            return <Card2 key={data.id} data={props.data}/>;
+            return <PersonCard key={data.id} data={props.data}/>;
         }
+        
     });
+    
     return (
         <div className="container">
             <div className="row">
