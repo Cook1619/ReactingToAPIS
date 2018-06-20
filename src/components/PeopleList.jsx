@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import MovieList from './components/MovieList';
-import PeopleList from './components/PeopleList';
-import './styles.css';
+import MovieList from './MovieList';
 
-const Base_URL = 'https://ghibliapi.herokuapp.com/films';
+const Base_URL = 'https://ghibliapi.herokuapp.com/people';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            movies: [],
+            people: [],
             toggle: false
         }
     }
@@ -31,29 +29,17 @@ class App extends Component {
                 }
             )
     }
-    showMovies = () => {
+    showPeople = () => {
         this.setState({ toggle: !this.state.toggle })
     }
     render() {
-        if (!this.state.toggle) {
+
             return (
                 <React.Fragment>
-                    <h1 className="text-center">Studio Ghibli Movies</h1>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Hide Movies</button>
-                    
+                    <button className="d-flex mx-auto btn btn-ghost center-block m-2" onClick={this.showPeople}>Show People</button>
                     <MovieList movie={this.state.movies} />
                 </React.Fragment>
             )
         }
-        else {
-            return (
-                <React.Fragment>
-                    <h1 className="text-center">Studio Ghibli Movies</h1>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" onClick={this.showMovies}>Show Movies</button>
-                    <PeopleList />
-                </React.Fragment>
-            )
-        }
     }
-}
 export default App;
