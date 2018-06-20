@@ -19,7 +19,7 @@ class App extends Component {
         try {
             let res = await fetch(`${Base_URL}`);
             let data = await res.json();
-            console.log(data);
+            
             this.setState({
                 list: data,
                 type: 'movies'
@@ -32,7 +32,7 @@ class App extends Component {
         try {
             let res = await fetch(`${Base_URL2}`);
             let data = await res.json();
-            console.log(data);
+            
             this.setState({
                 list: data,
                 type: 'people'
