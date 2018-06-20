@@ -10,57 +10,59 @@ class App extends Component {
         super(props);
 
         this.state = {
-            list : [],
+            list: [],
             type: ''
-            
+
         }
     }
-    showMovies = () => {
-        fetch(`${Base_URL}`)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        type:'movies'
-                    })
+    showMovies = async () => {
+        try {
+            let res = await fetch(`${Base_URL}`);
+            let data = await res.json();
+            console.log(data);
+            this.setState({
+                list:{
+                    id : data.id,
+                    title: data.title,
+                    description: data.description
                 },
-                (error) => {
-                    this.setState({
-                        error
-                    })
-                }
-            )
+                type: 'movies'
+            })
+        } catch (e) {
+            console.log(e);
+        }
     }
-    showPeople = () => {
-        fetch(`${Base_URL2}`)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        type:'people'
-                    })
-                },
-                (error) => {
-                    this.setState({
-                        error
-                    })
+    showPeople = async () => {
+        try {
+            let res = await fetch(`${Base_URL2}`);
+            let data = await res.json();
+            console.log(data);
+            this.setState({
+                list: {
+                  name: data.name,
+                  age: data.age,
+                  gender: data.gender  
                 }
-            )
+            })
+        } catch (e) {
+            console.log(e);
+        }
     }
 
-   
+
     render() {
-    
-            return (
-                <React.Fragment>
-                    <h1 className="text-center">Studio Ghibli Movies</h1>
-                    <button className="d-flex mx-auto btn btn-ghost center-block m-4" 
+
+        return (
+            <React.Fragment>
+                <h1 className="text-center">Studio Ghibli Movies</h1>
+                <button className="d-flex mx-auto btn btn-ghost center-block m-4"
                     onClick={this.showMovies}>Show Movies</button>
-                    <button className="d-flex mx-auto btn btn-ghost center-block" 
+                <button className="d-flex mx-auto btn btn-ghost center-block"
                     onClick={this.showPeople}>Show People</button>
-                    <List type={this.state.type} list={this.state.list}/>
-                </React.Fragment>
-            )
-        }
+                <List type={this.state.type} list={this.state.list} />
+            </React.Fragment>
+        )
     }
+}
 export default App;
+
