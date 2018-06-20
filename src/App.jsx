@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieList from './components/MovieList';
+import MovieList from './components/List';
 import './styles.css';
 
 const Base_URL = 'https://ghibliapi.herokuapp.com/films';
@@ -10,7 +10,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            movies: [],
+            list : [],
+            type: ''
             
         }
     }
@@ -20,7 +21,7 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        movies: result
+                        type:'movies'
                     })
                 },
                 (error) => {
@@ -36,7 +37,7 @@ class App extends Component {
             .then(
                 (result) => {
                     this.setState({
-                        people: result
+                        type:'people'
                     })
                 },
                 (error) => {
@@ -57,7 +58,7 @@ class App extends Component {
                     onClick={this.showMovies}>Show Movies</button>
                     <button className="d-flex mx-auto btn btn-ghost center-block" 
                     onClick={this.showPeople}>Show People</button>
-                    <MovieList people={this.state.people}/>
+                    <List type={this.state.type} list={this.state.list}/>
                 </React.Fragment>
             )
         }
