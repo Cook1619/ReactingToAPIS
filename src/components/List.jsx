@@ -5,12 +5,11 @@ import PersonCard from './PersonCard.jsx';
 const List = props => {
 
     let cardList = props.list.map(data => {
-
         if (props.type === "films") {
-            return <FilmCard key={data.id} data={props.data}/>;
+            return <FilmCard key={data.id} data={data}/>;
         }
         else {
-            return <PersonCard key={data.id} data={props.data}/>;
+            return <PersonCard key={data.id} data={data}/>;
         }
         
     });
