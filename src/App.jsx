@@ -1,61 +1,70 @@
-import React, { Component } from 'react';
-import List from './components/List.jsx';
-import './styles.css';
+import React, { Component } from "react";
+import List from "./components/List.jsx";
+import "./styles.css";
 
-const Base_URL = 'https://ghibliapi.herokuapp.com/films';
-const Base_URL2 = 'https://ghibliapi.herokuapp.com/people'
+const Base_URL = "https://ghibliapi.herokuapp.com/films";
+const Base_URL2 = "https://ghibliapi.herokuapp.com/people";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            list: [],
-            type: ''
+    this.state = {
+      list: [],
+      type: ""
+    };
+  }
+  showMovies = async () => {
+    try {
+      let res = await fetch(`${Base_URL}`);
+      let data = await res.json();
 
-        }
+      this.setState({
+        list: data,
+        type: "movies"
+      });
+    } catch (e) {
+      console.log(e);
     }
-    showMovies = async () => {
-        try {
-            let res = await fetch(`${Base_URL}`);
-            let data = await res.json();
+  };
+  showPeople = async () => {
+    try {
+      let res = await fetch(`${Base_URL2}`);
+      let data = await res.json();
 
-            this.setState({
-                list: data,
-                type: 'movies'
-            })
-        } catch (e) {
-            console.log(e);
-        }
+      this.setState({
+        list: data,
+        type: "people"
+      });
+    } catch (e) {
+      console.log(e);
     }
-    showPeople = async () => {
-        try {
-            let res = await fetch(`${Base_URL2}`);
-            let data = await res.json();
+  };
+  hasLoaded = () => {
+    this.setState({ hasLoaded: this.state.hasLoaded });
+  };
 
-            this.setState({
-                list: data,
-                type: 'people'
-            })
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-
-    render() {
-
-        return (
-            <React.Fragment>
-                <h1 className="text-center">Studio Ghibli Movies</h1>
-                <button className="d-flex mx-auto btn btn-ghost center-block m-4"
-                    onClick={this.showMovies}>Show Movies</button>
-                <button className="d-flex mx-auto btn btn-ghost center-block"
-                    onClick={this.showPeople}>Show People</button>
-                <List type={this.state.type} list={this.state.list} />
-            </React.Fragment>
-        )
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <h1 className="text-center text-shadow">Studio Ghibli Movies</h1>
+        <button
+          className="btn btn-dark d-flex mx-auto shadow m-2"
+          onClick={this.showMovies}
+          onDoubleClick={this.hasLoaded}
+        >
+          Show Movies
+        </button>
+        <button
+          className="btn btn-dark d-flex mx-auto shadow m-2"
+          onClick={this.showPeople}
+          onDoubleClick={this.hasLoaded}
+        >
+          Show People
+        </button>
+        <List type={this.state.type} list={this.state.list} />
+      </React.Fragment>
+    );
+  }
 }
 export default App;
-
