@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Cook1619.github.io/ReactingToAPIS",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
