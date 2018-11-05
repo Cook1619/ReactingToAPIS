@@ -7,7 +7,8 @@ const FilmCard = props => {
         {props.data.title}
       </div>
       <div className="card-body shadow">
-        <h5 className="card-title">{props.data.description}</h5>
+        <h5 className="card-title">Description:</h5>
+        <h6 className="card-text">{props.data.description}</h6>
       </div>
     </div>
   );

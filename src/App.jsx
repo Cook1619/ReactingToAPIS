@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import List from "./components/List.jsx";
 import "./styles.css";
-
+import logo from "./components/logo.png";
 const Base_URL = "https://ghibliapi.herokuapp.com/films";
 const Base_URL2 = "https://ghibliapi.herokuapp.com/people";
 
@@ -48,20 +48,27 @@ class App extends Component {
     return (
       <React.Fragment>
         <h1 className="text-center text-shadow">Studio Ghibli Movies</h1>
-        <button
-          className="btn btn-dark d-flex mx-auto shadow m-2"
-          onClick={this.showMovies}
-          onDoubleClick={this.hasLoaded}
-        >
-          Show Movies
-        </button>
-        <button
-          className="btn btn-dark d-flex mx-auto shadow m-2"
-          onClick={this.showPeople}
-          onDoubleClick={this.hasLoaded}
-        >
-          Show People
-        </button>
+        <img
+          src={logo}
+          alt="Studio Ghibli Logo"
+          className="d-flex mx-auto pb-5"
+        />
+        <div className="d-flex justify-content-center">
+          <button
+            className="btn btn-dark btn-md m-2"
+            onClick={this.showMovies}
+            onDoubleClick={this.hasLoaded}
+          >
+            Show Movies
+          </button>
+          <button
+            className="btn btn-dark btn-md m-2"
+            onClick={this.showPeople}
+            onDoubleClick={this.hasLoaded}
+          >
+            Show People
+          </button>
+        </div>
         <List type={this.state.type} list={this.state.list} />
       </React.Fragment>
     );
